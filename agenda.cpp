@@ -9,7 +9,7 @@ Agenda::Agenda(){}
 
 void Agenda::insereContato(string nome_, string apelido_, string celular_, string wpp_, string email_){
 	Pessoa p(nome_, apelido_, celular_, wpp_, email_);
-	m_contatos.insert(std::pair<string, Pessoa>(nome_, p));
+	m_contatos.insert(std::pair<string, Contato>(nome_, p));
 }
 
 void Agenda::removeContato(string nome_){
