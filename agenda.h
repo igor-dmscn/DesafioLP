@@ -3,26 +3,22 @@
 
 #include <iostream>
 #include <string>
+#include <map>
 
-#include "pessoa.h"
-
-#define MAX_CONTATOS 100
+#include "contato.h"
 
 using namespace std;
 
 class Agenda{
 	private:
-		Pessoa * m_contatos[MAX_CONTATOS];
-		int m_total_contatos;
+		multimap<string, Contato> m_contatos;
 
 	public:
 		Agenda();
-		void insereContato(string nome_, int idade_, float altura_);
+		void insereContato(string nome_, string apelido_, string celular_, string wpp_, string email_);
 		void removeContato(string nome_);
-		int buscaContato(string nome_);
-		void listaContato(char letra_);
+		Contato buscaContato(string nome_);
 		void listaContato();
-		void imprimeContato(int i);
 
 };
 
