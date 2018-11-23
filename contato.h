@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class Pessoa{
+class Contato{
 	private:
 		string m_nome;
 		string m_apelido;
@@ -15,16 +15,17 @@ class Pessoa{
 		string m_email;
 
 	public:
-		Pessoa(string nome_, string apelido_, string celular_, string wpp_, string email_);
-		~Pessoa();
+		Contato(string nome_, string apelido_, string celular_, string wpp_, string email_);
+		~Contato();
 
 		string getNome();
 		string getApelido();
 		string getCelular();
 		string getWpp();
 		string getEmail();
+		string toCsv();
 
-	friend ostream& operator<<(ostream& o, const Pessoa& p);
+	friend ostream& operator<<(ostream& o, const Contato& p);
 
 };
 
