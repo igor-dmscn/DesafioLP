@@ -7,7 +7,7 @@
 # $< = primeira dependência da regra
 
 # comando de compilação do G++
-CC = g++ -g
+CC = g++
 
 # diretórios usados
 INC = ./include

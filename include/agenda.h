@@ -2,7 +2,7 @@
 #define AGENDA_H
 
 #include <iostream>
-#include <string>
+#include <fstream>
 #include <map>
 
 #include "contato.h"

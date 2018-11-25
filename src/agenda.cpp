@@ -21,17 +21,54 @@ Contato Agenda::buscaContato(string nome_){
 }
 
 void Agenda::listaContato(){
-	for(auto it = m_contatos.begin(); it != m_contatos.end(); it++){
-		cout << it->second;
-	}
+	if(this->m_contatos.size() > 0){
+		for(auto it = m_contatos.begin(); it != m_contatos.end(); it++){
+			cout << it->second;
+		}
+	}else{
+		cout << "A agenda esta vazia, nao eh possivel listar contatos!" << endl;
+	};
 }
 
 void Agenda::exportToCsv(){
+	string fName = "contatos.csv";
 	if(this->m_contatos.size() > 0){
-		// TO_DO
+		ofstream arq(fName);
+		if(arq.is_open() == 0){
+			cout << "Nao foi possivel exportar o arquivo de contatos!" << endl;
+        	return;
+		};
+		int count = 0;
+		for(auto it = this->m_contatos.begin(); it != this->m_contatos.end(); it++){
+			arq << it->second.toCsv() << endl;
+			count++;
+		};
+		cout << "Foram exportados " << count << " contatos para o arquivo " << fName << endl;
+	}else{
+		cout << "A agenda esta vazia, não eh possivel exportar contatos." << endl;
 	};
 }
 
 void Agenda::importFromCsv(){
-	// TO_DO
+	string fName = "contatos.csv";
+	ifstream arq(fName);
+    string linha;
+    if(arq.is_open() == 0){
+		cout << "Nao foi possivel importar o arquivo [" << fName << "]!" << endl;
+		cout << "Verifique se ele existe e está acessível." << endl;
+        return;
+    };
+	unsigned count = 0;
+    while(getline(arq, linha)){
+        Contato c(linha);
+		if(c.isValid()){
+			m_contatos.insert(std::pair<string, Contato>(c.getNome(), c));
+			count++;
+		} 
+    };
+	if(count > 0){
+		cout << "Foram importados " << count << " contatos!" << endl;
+	}else{
+		cout << "Nao foram encontrados contatos no arquivo [" << fName << "]!" << endl;
+	};
 }

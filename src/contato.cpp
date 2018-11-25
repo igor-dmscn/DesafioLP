@@ -32,7 +32,8 @@ vector<string> Contato::splitString(string& linha, char delimitador){
 			colunas.push_back(buffer);
 			buffer = "";
 		}else{
-			buffer += to_string(c);
+			string letra(1, c);
+			buffer += letra;
 		};
 	};
 	if(buffer != "") colunas.push_back(buffer);

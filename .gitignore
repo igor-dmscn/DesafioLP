@@ -3,3 +3,7 @@ build/contato.o
 build/main.o
 bin/agenda
 bin/agenda.exe
+contatos.csv
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
