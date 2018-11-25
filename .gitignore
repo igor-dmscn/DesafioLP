@@ -1,0 +1,5 @@
+build/agenda.o
+build/contato.o
+build/main.o
+bin/agenda
+bin/agenda.exe
