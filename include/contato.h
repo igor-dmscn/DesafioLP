@@ -19,7 +19,7 @@ class Contato{
 		string m_wpp;
 		string m_email;
 
-		/** Vector do tipo String para separar as informações do contato para o arquivo csv */
+		/** Função auxiliar para separar as informações do contato para o arquivo csv */
 		vector<string> splitString(string& linha, char delimitador);
 
 	public:

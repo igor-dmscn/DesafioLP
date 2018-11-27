@@ -20,7 +20,7 @@ Contato::Contato(string nome_, string apelido_, string celular_, string wpp_, st
 	m_nome(nome_), m_apelido(apelido_), m_celular(celular_), m_wpp(wpp_), m_email(email_){}
 
 /**
- * @brief      Contrutor parametrizado que recebe a linha do CSV
+ * @brief  Contrutor parametrizado que recebe a linha do CSV
  *
  * @param  linhaCsv  A linha vinda do arquivo
  */
@@ -28,7 +28,7 @@ Contato::Contato(string linhaCsv){
 	vector<string> colunas = this->splitString(linhaCsv, ';');
 	/** Caso o vetor não possua a quantidade correta de elementos, o contato será inválido
 		Então esvaziamos o vetor e preenchemos ele com string vazias */
-	if(colunas.size() < 5){
+	if(colunas.size() != 5){
 		colunas.clear();
 		for(int i = 0; i < 6; i++) colunas.push_back("");
 	}
@@ -45,12 +45,12 @@ Contato::Contato(string linhaCsv){
 Contato::~Contato(){}
 
 /**
- * @brief      
+ * @brief	Método auxiliar para quebra da string em um vetor de string de acordo com um delimitador
  *
- * @param      linha        
- * @param  delimitador  
+ * @param	linha        string a ser quebrada
+ * @param	delimitador  caractere que determina a quebra
  *
- * @return     {  }
+ * @return 
  */
 vector<string> Contato::splitString(string& linha, char delimitador){
 	vector<string> colunas;
